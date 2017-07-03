@@ -12,6 +12,7 @@ namespace bench
 
   namespace filesystem = boost::filesystem;
 
+
   class ICA_trace{
     
   public:
@@ -32,10 +33,13 @@ namespace bench
     std::chrono::system_clock::time_point start_time_;
   };
 
+
   void bench_file(const filesystem::path& data_file,
                   const filesystem::path& results_dir);
 
+
   void bench_directory(const filesystem::path& data_dir,
                        const filesystem::path& results_dir);
+
 }
 #endif
