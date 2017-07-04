@@ -65,8 +65,10 @@ namespace bench
     filesystem::create_directories(output_dir);
     data.save((output_dir / "data.csv").string(), arma::csv_ascii);
     ICA_trace trace(output_dir);
+    neo_ica::options options{};
+    options.extended = false;
     neo_ica::ica(data.memptr(), weights.memptr(), sphere.memptr(),
-                 data.n_cols, data.n_rows, neo_ica::options(), trace);
+                 data.n_cols, data.n_rows, options, trace);
     std::cout << "results in " << output_dir.string() << "\n";
   }
 
