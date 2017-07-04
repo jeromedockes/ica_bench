@@ -22,4 +22,4 @@ def get_iterations(results_dir):
     iteration_info.sort_values('iteration', inplace=True)
     for index, row in iteration_info.iterrows():
         weights = np.loadtxt(row['file'], delimiter=',')
-        yield weights, dict(row)
+        yield dict(dict(row), weights=weights)
