@@ -15,7 +15,7 @@ def get_iterations(results_dir):
     iteration_files = pd.DataFrame(iteration_files, columns=['file'])
     details = iteration_files.file.str.extract(
         r'iteration_(?P<iteration>\d+)_time_'
-        r'(?P<time_milliseconds>\d+)_milliseconds\.csv')
+        r'(?P<time_milliseconds>\d+)_milliseconds\.csv', expand=False)
     details['iteration'] = pd.to_numeric(details['iteration'])
     details['time_milliseconds'] = pd.to_numeric(details['time_milliseconds'])
     iteration_info = pd.concat([iteration_files, details], axis=1)
